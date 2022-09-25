@@ -8,7 +8,7 @@ import (
 func OnConnect(callback func(client *Client, request *Request, channel *io.Channel)) {
 	on("connect", func(args ...interface{}) {
 		if len(args) > 1 {
-			callback(args[0].(*Client), args[1].(*Request))
+			callback(args[0].(*Client), args[1].(*Request), args[2].(*io.Channel))
 		}
 	})
 }
