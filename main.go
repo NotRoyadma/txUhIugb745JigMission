@@ -112,6 +112,7 @@ func startConnectionHandlers() {
 func startHTTPServer(config map[string]interface{}, secure bool, address string, port int, path string) {
 	serveMux := http.NewServeMux()
 	serveMux.Handle(path, ioServer)
+	fmt.Println(ioServer.headers)
 
 	if !secure || config["ssl-cert"] == nil || config["ssl-key"] == nil {
 		log.Panic(http.ListenAndServe(address, serveMux))
