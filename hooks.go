@@ -1,7 +1,11 @@
 package gosf
 
+import (
+	io "github.com/ambelovsky/gosf-socketio"
+)
+
 // OnConnect registers an event handler that fires when a client connects
-func OnConnect(callback func(client *Client, request *Request)) {
+func OnConnect(callback func(client *Client, request *Request, channel *io.Channel)) {
 	on("connect", func(args ...interface{}) {
 		if len(args) > 1 {
 			callback(args[0].(*Client), args[1].(*Request))
