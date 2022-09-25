@@ -93,9 +93,8 @@ func startConnectionHandlers() {
 
 		request := new(Request)
 		request.Endpoint = "connect"
-		fmt.Println(channel)
 
-		emit("connect", client, request)
+		emit("connect", client, request, channel)
 	})
 
 	// Handle disconnected
